@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router'; // ✅ Importation correcte
 import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { provideHttpClient } from '@angular/common/http';
+import { PostService } from './services/post.service';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,10 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
     BrowserModule,
     RouterModule.forRoot([]) // ✅ Nécessaire pour activer <router-outlet>
   ],
-  providers: [],
+  providers: [
+    provideHttpClient(),
+    PostService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
